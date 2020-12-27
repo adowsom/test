@@ -1,0 +1,6 @@
+bit==0.7.2
+requests==2.25.0
+eth-hash==0.2.0
+eth-hash[pycryptodome]
+fastecdsa==2.1.5
+pycryptodome==3.9.9
