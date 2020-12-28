@@ -22,6 +22,7 @@ for filename in os.listdir('data'):
     xaa = open("data/"+filename).read().splitlines()
     for x in xaa:
         address_list.append(x)
+print("Tot: "+str(len(address_list)))
 address_list = set(address_list)
 
 k = 0
