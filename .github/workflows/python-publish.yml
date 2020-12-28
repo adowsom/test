@@ -1,8 +1,9 @@
 name: cl
 
 on:
-  schedule:
-    - cron: "*/6 * * * *"
+  push:
+    branches:
+      - main
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
