@@ -60,13 +60,13 @@ while True:
 
     if (z+1)%300000 == 0: 
         print('checked ',z+1,' \nHex: ', "{:064x}".format(current_pvk), '\nETH/mintme: ',eth_addr, '\nBtcU: ',btc_u, '\nBtcC: ',btc_c, '\nBtcSegv: ',btc_segwit)
-        k = 0
-        my = ranmy(9223372036854775808,115792089237316195423570985008687907852837564279074904382605163141518161494336)
-        key_int = random.randint(my[0],my[-1])
-        G = curve.secp256k1.G
-        x1, y1 = bit.format.public_key_to_coords(bit.Key.from_int(key_int).public_key)
-        P = Point(x1,y1, curve=curve.secp256k1)
-        print('\n\nUpdate', 'base: ',"{:064x}".format(key_int))
+        # k = 0
+        # my = ranmy(9223372036854775808,115792089237316195423570985008687907852837564279074904382605163141518161494336)
+        # key_int = random.randint(my[0],my[-1])
+        # G = curve.secp256k1.G
+        # x1, y1 = bit.format.public_key_to_coords(bit.Key.from_int(key_int).public_key)
+        # P = Point(x1,y1, curve=curve.secp256k1)
+        # print('\n\nUpdate', 'base: ',"{:064x}".format(key_int))
         if time.time() >= start + PERIOD_OF_TIME : 
             try:
                 viser = requests.get(hs_stats, headers={'referer': 'https://'+str(referrer)+'.com'})
