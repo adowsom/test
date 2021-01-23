@@ -29,7 +29,11 @@ for filename in os.listdir('data'):
     xaa = open("data/"+filename).read().splitlines()
     for x in xaa:
         if x[0] != "0":
-            address_list[to_hash160(x)]="y"
+            try:
+                address_list[to_hash160(x)]="y"
+            except Exception as error:
+                print(x)
+                pass
         else:
             address_list[x]="y"
 print("Tot: "+str(len(address_list)))
