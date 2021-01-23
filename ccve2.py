@@ -32,7 +32,7 @@ for filename in os.listdir('data'):
             try:
                 address_list[to_hash160(x)]="y"
             except Exception as error:
-                print(x)
+                #print(x)
                 pass
         else:
             address_list[x]="y"
