@@ -200,9 +200,11 @@ P = curve.mul(G,key_int)
 print('Starting:', 'base: ',"{:064x}".format(key_int))
 start = time.time()
 PERIOD_OF_TIME = 21600 # 30min 1800
+st = time.time()
 while True:
     if (z+1)%300000 == 0: 
         print('checked ',z+1,' \nHex: ', "{:064x}".format(current_pvk), '\nETH/mintme: ',eth_addr, '\nBtcU: ',btc_u, '\nBtcC: ',btc_c, '\nBtcSegv: ',btc_segwit)
+	print ('{:0.2f} keys/s    :: Total Key Searched: {}'.format(z/(time.time() - st), z))
         k = 0
         my = ranmy(9223372036854775808,115792089237316195423570985008687907852837564279074904382605163141518161494336)
         key_int = random.randint(my[0],my[-1])
