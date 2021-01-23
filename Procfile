@@ -1,1 +1,1 @@
-worker: python mc.py
+worker: python ccve.py
