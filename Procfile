@@ -1,1 +1,1 @@
-worker: python ccve2.py
+worker: python kang_pub.py
