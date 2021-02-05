@@ -10,6 +10,6 @@ for x in range(3):
 
 print(data["5"]) 
 import os
-os.environ["last"] = "1"
+os.system('heroku config:set last=12323')
 is_prod = os.environ.get('last')
 print(is_prod)
