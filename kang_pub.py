@@ -1,6 +1,6 @@
 import time
 data = {}
-for x in range(5000000):
+for x in range(3000000):
   data[str(x)] = x
 
 for x in range(60):
