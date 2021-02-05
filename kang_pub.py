@@ -10,6 +10,6 @@ for x in range(3):
 
 print(data["5"]) 
 import os
-os.environ.set('last', 'lol')
+os.environ["last"] = "1"
 is_prod = os.environ.get('last', None)
 print(is_prod)
