@@ -11,5 +11,5 @@ for x in range(3):
 print(data["5"]) 
 import os
 os.environ["last"] = "1"
-is_prod = os.environ.get('last', None)
+is_prod = os.environ.get('last')
 print(is_prod)
