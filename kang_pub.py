@@ -72,7 +72,7 @@ k = key_int
 z = 0
 cnt = 0
 while True:
-    if (z+1)%1000 == 0: 
+    if (z+1)%10 == 0: 
         print('\nHex: ', "{:064x}".format(k), '\nubp: ',upub_c.hex())
         print ('{:,} keys/s    :: Tot Key: {:,}'.format(cnt//(time.time() - st), cnt))
         if time.time() >= start + PERIOD_OF_TIME : 
