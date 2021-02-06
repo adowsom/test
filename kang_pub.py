@@ -39,7 +39,7 @@ for x in range(1,(stride_num+8)):
     puzle = puzle.combine_keys([puzle,G])
     upub_c = puzle.format(compressed=True)
     data[str(upub_c.hex())] = str(x)
-    if len(data) >= 2000000:
+    if len(data) >= 1000000:
         json_object = json.dumps(data)  
         with open("data.txt", "a") as myfile:
             myfile.write(str(json_object)+"\n")
@@ -49,6 +49,7 @@ json_object = json.dumps(data)
 with open("data.txt", "a") as myfile:
     myfile.write(str(json_object)+"\n")
 data = {}
+del data
 stride = G.multiply(int_to_bytes(stride_num))
 
 def search_data(nsamples):
