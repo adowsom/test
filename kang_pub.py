@@ -43,6 +43,8 @@ for x in range(1,(stride_num+8)):
         json_object = json.dumps(data)  
         with open("data.txt", "a") as myfile:
             myfile.write(str(json_object)+"\n")
+        del data[:]
+        del data
         data = {}
 json_object = json.dumps(data)  
 with open("data.txt", "a") as myfile:
@@ -56,6 +58,8 @@ def search_data(nsamples):
             dater = json.loads(line)
             if nsamples in dater:
                 return dater[nsamples]
+            del dater[:]
+            del dater
 
 
 key_int = random.randint(0x800000000000000000000000000000, 0xffffffffffffffffffffffffffffff)
