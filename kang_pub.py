@@ -32,7 +32,7 @@ print("Generating points..")
 data = {}
 upub_c = puzle.format(compressed=True)
 data[str(upub_c.hex())] = "0"
-stride_num = 3000000
+stride_num = 2500000
 for x in range(1,(stride_num+8)):
     puzle = puzle.combine_keys([puzle,G])
     upub_c = puzle.format(compressed=True)
