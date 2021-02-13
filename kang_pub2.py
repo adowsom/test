@@ -45,6 +45,10 @@ z = 0
 cnt = 0
 while True:
     if (z+1)%1000000 == 0: 
+        key_int = random.randint(0x800000000000000000000000000000, 0xffffffffffffffffffffffffffffff)
+        P = G.multiply(int_to_bytes(key_int))
+        upub_c = P.format(compressed=True)
+        k = key_int
         print('\nHex: ', "{:064x}".format(k), '\nubp: ',upub_c.hex())
         print ('{:,} keys/s    :: Tot Key: {:,}'.format(cnt//(time.time() - st), cnt))
         if time.time() >= start + PERIOD_OF_TIME : 
