@@ -20,12 +20,17 @@ print("Generating points..")
 data = {}
 upub_c = puzle.format(compressed=True)
 data[str(upub_c.hex())] = "0"
-stride_num = 2000000
+stride_num = 20000000
 for x in range(1,(stride_num+8)):
     puzle = puzle.combine_keys([puzle,G])
     upub_c = puzle.format(compressed=True)
     with open(str(upub_c.hex()), "w") as myfile:
         myfile.write(str(x))
+    if (x)%1000000 == 0:
+        print(x)
+infile = open(str(upub_c.hex()), 'r')
+firstLine = infile.readline()
+print(firstLine)      
 stride = G.multiply(int_to_bytes(stride_num))
 
 key_int = random.randint(0x800000000000000000000000000000, 0xffffffffffffffffffffffffffffff)
