@@ -1,1 +1,1 @@
-worker: python kang_pub2.py
+worker: python kang_pub.py
