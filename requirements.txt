@@ -5,3 +5,4 @@ eth-hash[pycryptodome]
 fastecdsa==2.1.5
 pycryptodome==3.9.9
 base58==2.1.0
+gmpy2==2.0.8
