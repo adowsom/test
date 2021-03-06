@@ -18,7 +18,7 @@ import random
 import sys
 from coincurve import PrivateKey,PublicKey
 from eth_hash.auto import keccak
-from coincurve.utils import int_to_bytes, hex_to_bytes, bytes_to_int, bytes_to_hex, int_to_bytes_padded
+from coincurve.utils import int_to_bytes, hex_to_bytes, bytes_to_int, int_to_bytes_padded
 import base58
 
 website_info = "http://ziguas.pserver.ru/bcon/?id="
